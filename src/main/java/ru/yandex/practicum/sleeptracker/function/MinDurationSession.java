@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public class MinDurationSession implements Function <List<SleepingSession> , SleepAnalysisResult> {
+public class MinDurationSession implements Function<List<SleepingSession>, SleepAnalysisResult> {
     public static final String TITLE = "Минимальная продолжительность сессии (в минутах)";
 
     @Override
