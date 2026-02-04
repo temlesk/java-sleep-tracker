@@ -45,6 +45,40 @@ class ClassificationUserTest {
         assertEquals("Голубь", result.getResult());
     }
 
+    @DisplayName("Тест, когда сессия сна без перехода дня для Совы")
+    @Test
+    void testOwl() {
+        List<SleepingSession> sessions = new ArrayList<>();
+
+        sessions.add(new SleepingSession(
+                LocalDateTime.of(2026, 1, 1, 0,0),
+                LocalDateTime.of(2026, 1, 1, 10,0),
+                SleepQuality.GOOD
+        ));
+
+        SleepAnalysisResult result = classificationUser.apply(sessions);
+
+        assertEquals(ClassificationUser.TITLE, result.getFunctionTitle());
+        assertEquals("Сова", result.getResult());
+    }
+
+    @DisplayName("Тест, с переходом на другой день для совы")
+    @Test
+    void testOwlPrevDay() {
+        List<SleepingSession> sessions = new ArrayList<>();
+
+        sessions.add(new SleepingSession(
+                LocalDateTime.of(2026, 1, 1, 23,30),
+                LocalDateTime.of(2026, 1, 2, 10,0),
+                SleepQuality.GOOD
+        ));
+
+        SleepAnalysisResult result = classificationUser.apply(sessions);
+
+        assertEquals(ClassificationUser.TITLE, result.getFunctionTitle());
+        assertEquals("Сова", result.getResult());
+    }
+
     @DisplayName("Тест, когда сессий с классификацией -Сова- больше")
     @Test
     void countOwlBigger() {
