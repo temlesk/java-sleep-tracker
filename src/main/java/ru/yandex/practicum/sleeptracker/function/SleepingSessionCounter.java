@@ -16,4 +16,3 @@ public class SleepingSessionCounter implements Function <List<SleepingSession> ,
         return new SleepAnalysisResult(TITLE, quanity);
     }
 }
-// добавить остальные функции с методом apply и с таким же параметром

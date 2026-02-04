@@ -6,11 +6,9 @@ import ru.yandex.practicum.sleeptracker.Model.SleepAnalysisResult;
 import ru.yandex.practicum.sleeptracker.Model.SleepQuality;
 import ru.yandex.practicum.sleeptracker.Model.SleepingSession;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
