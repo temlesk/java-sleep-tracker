@@ -80,7 +80,6 @@ public class SleepTrackerApp {
         } catch (IOException e) {
             System.out.println("Произошла ошибка при чтении из файла" + file.getName());
         }
-
         return sessions;
     }
 

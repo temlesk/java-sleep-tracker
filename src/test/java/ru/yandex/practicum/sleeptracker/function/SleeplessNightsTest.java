@@ -34,7 +34,6 @@ class SleeplessNightsTest {
         ));
 
         SleepAnalysisResult result = sleeplessNights.apply(sessions);
-
         assertEquals(SleeplessNights.TITLE, result.getFunctionTitle());
         assertEquals(1L, result.getResult());
     }
@@ -75,7 +74,6 @@ class SleeplessNightsTest {
         ));
 
         SleepAnalysisResult result = sleeplessNights.apply(sessions);
-
         assertEquals(SleeplessNights.TITLE, result.getFunctionTitle());
         assertEquals(2L, result.getResult());
     }

@@ -22,7 +22,6 @@ class SleepingSessionCounterTest {
         List<SleepingSession> sessions = new ArrayList<>();
 
         SleepAnalysisResult result = counter.apply(sessions);
-
         assertEquals("Количество сессий сна", result.getFunctionTitle());
         assertEquals(0, result.getResult());
     }
@@ -36,7 +35,6 @@ class SleepingSessionCounterTest {
         );
 
         SleepAnalysisResult result = counter.apply(sessions);
-
         assertEquals("Количество сессий сна", result.getFunctionTitle());
         assertEquals(2, result.getResult());
     }

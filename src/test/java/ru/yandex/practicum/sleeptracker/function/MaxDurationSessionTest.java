@@ -34,18 +34,16 @@ class MaxDurationSessionTest {
         ));
 
         SleepAnalysisResult result = maxDurationSession.apply(sessions);
-
         assertEquals(MaxDurationSession.TITLE, result.getFunctionTitle());
         assertEquals(660L, result.getResult());
     }
 
     @DisplayName("Тест нахождения максимальной продолжительности сесси сна при пустом списке")
     @Test
-    void maxDurationWithoutSession(){
+    void maxDurationWithoutSession() {
         List<SleepingSession> sessions = new ArrayList<>();
 
         SleepAnalysisResult result = maxDurationSession.apply(sessions);
-
         assertEquals(MaxDurationSession.TITLE, result.getFunctionTitle());
         assertEquals("Не удалось найти максимальную продолжительность", result.getResult());
     }

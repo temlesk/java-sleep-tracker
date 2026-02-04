@@ -2,6 +2,7 @@ package ru.yandex.practicum.sleeptracker.function;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.sleeptracker.Model.Chronotype;
 import ru.yandex.practicum.sleeptracker.Model.SleepAnalysisResult;
 import ru.yandex.practicum.sleeptracker.Model.SleepQuality;
 import ru.yandex.practicum.sleeptracker.Model.SleepingSession;
@@ -40,9 +41,8 @@ class ClassificationUserTest {
         ));
 
         SleepAnalysisResult result = classificationUser.apply(sessions);
-
         assertEquals(ClassificationUser.TITLE, result.getFunctionTitle());
-        assertEquals("Голубь", result.getResult());
+        assertEquals(Chronotype.PIGEON, result.getResult());
     }
 
     @DisplayName("Тест, когда сессия сна без перехода дня для Совы")
@@ -57,9 +57,8 @@ class ClassificationUserTest {
         ));
 
         SleepAnalysisResult result = classificationUser.apply(sessions);
-
         assertEquals(ClassificationUser.TITLE, result.getFunctionTitle());
-        assertEquals("Сова", result.getResult());
+        assertEquals(Chronotype.OWL, result.getResult());
     }
 
     @DisplayName("Тест, с переходом на другой день для совы")
@@ -74,9 +73,8 @@ class ClassificationUserTest {
         ));
 
         SleepAnalysisResult result = classificationUser.apply(sessions);
-
         assertEquals(ClassificationUser.TITLE, result.getFunctionTitle());
-        assertEquals("Сова", result.getResult());
+        assertEquals(Chronotype.OWL, result.getResult());
     }
 
     @DisplayName("Тест, когда сессий с классификацией -Сова- больше")
@@ -89,6 +87,7 @@ class ClassificationUserTest {
                 LocalDateTime.of(2026, 1, 2, 10,0),
                 SleepQuality.GOOD
         ));
+
         sessions.add(new SleepingSession(
                 LocalDateTime.of(2026, 1, 5, 2,0),
                 LocalDateTime.of(2026, 1, 5, 12,0),
@@ -108,8 +107,7 @@ class ClassificationUserTest {
         ));
 
         SleepAnalysisResult result = classificationUser.apply(sessions);
-
         assertEquals(ClassificationUser.TITLE, result.getFunctionTitle());
-        assertEquals("Сова", result.getResult());
+        assertEquals(Chronotype.OWL, result.getResult());
     }
 }

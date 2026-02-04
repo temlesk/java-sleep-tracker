@@ -40,7 +40,6 @@ class QuantitySessionWithBadSleepQualityTest {
         ));
 
         SleepAnalysisResult result = quality.apply(sessions);
-
         assertEquals(QuantitySessionWithBadSleepQuality.TITLE, result.getFunctionTitle());
         assertEquals(2L, result.getResult());
     }
@@ -51,7 +50,6 @@ class QuantitySessionWithBadSleepQualityTest {
         List<SleepingSession> sessions = new ArrayList<>();
 
         SleepAnalysisResult result = quality.apply(sessions);
-
         assertEquals(QuantitySessionWithBadSleepQuality.TITLE, result.getFunctionTitle());
         assertEquals(0L, result.getResult());
     }

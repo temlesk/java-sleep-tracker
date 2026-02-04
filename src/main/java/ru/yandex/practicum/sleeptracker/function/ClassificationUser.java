@@ -1,5 +1,6 @@
 package ru.yandex.practicum.sleeptracker.function;
 
+import ru.yandex.practicum.sleeptracker.Model.Chronotype;
 import ru.yandex.practicum.sleeptracker.Model.SleepAnalysisResult;
 import ru.yandex.practicum.sleeptracker.Model.SleepingSession;
 
@@ -25,8 +26,8 @@ public class ClassificationUser implements Function<List<SleepingSession>, Sleep
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         init();
         sleepingSessions.forEach(this::classification);
-        String kind = typeUser();
-        return new SleepAnalysisResult(TITLE, kind);
+        Chronotype chronotype = typeUser();
+        return new SleepAnalysisResult(TITLE, chronotype);
     }
 
     private void init() {
@@ -50,13 +51,13 @@ public class ClassificationUser implements Function<List<SleepingSession>, Sleep
         }
     }
 
-    private String typeUser() {
+    private Chronotype typeUser() {
         if (owlCount > larkCount && owlCount > pigeonCount) {
-            return "Сова";
+            return Chronotype.OWL;
         } else if (larkCount > owlCount && larkCount > pigeonCount) {
-            return "Жаворонок";
+            return Chronotype.LARK;
         } else {
-            return "Голубь";
+            return Chronotype.PIGEON;
         }
     }
 }

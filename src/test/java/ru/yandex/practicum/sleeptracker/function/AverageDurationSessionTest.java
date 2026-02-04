@@ -42,7 +42,6 @@ class AverageDurationSessionTest {
                 SleepQuality.GOOD));
 
         SleepAnalysisResult result = averageDurationSession.apply(session);
-
         assertEquals(AverageDurationSession.TITLE, result.getFunctionTitle());
         assertEquals(600L, result.getResult());
     }
@@ -53,7 +52,6 @@ class AverageDurationSessionTest {
         List<SleepingSession> sessions = new ArrayList<>();
 
         SleepAnalysisResult result = averageDurationSession.apply(sessions);
-
         assertEquals(AverageDurationSession.TITLE, result.getFunctionTitle());
         assertEquals("Не удалось найтри среднюю продолжительность сессии", result.getFunctionTitle());
     }
