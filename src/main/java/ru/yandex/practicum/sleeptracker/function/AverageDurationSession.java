@@ -21,9 +21,9 @@ public class AverageDurationSession implements Function<List<SleepingSession>, S
                 .mapToLong(Duration::toMinutes)
                 .average();
 
-        if (averageDuration.isPresent()){
+        if (averageDuration.isPresent()) {
             long average = Math.round(averageDuration.getAsDouble());
-            return new SleepAnalysisResult(TITLE ,average);
+            return new SleepAnalysisResult(TITLE, average);
         } else {
             return new SleepAnalysisResult(TITLE, "Не удалось найти среднюю продолжительность сессии");
         }
