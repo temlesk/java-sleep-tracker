@@ -6,7 +6,7 @@ import ru.yandex.practicum.sleeptracker.Model.SleepingSession;
 import java.util.List;
 import java.util.function.Function;
 
-public class SleepingSessionCounter implements Function <List<SleepingSession>, SleepAnalysisResult> {
+public class SleepingSessionCounter implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
     public static final String TITLE = "Количество сессий сна";
 
