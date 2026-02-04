@@ -23,7 +23,7 @@ public class SleepTrackerApp {
     private static final DateTimeFormatter LOG_TIME_FORMATTER =
             DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
 
-    private final List<Function<List<SleepingSession>, SleepAnalysisResult>> ANALYTIC_FUNCTION = List.of(
+    private final List<Function<List<SleepingSession>, SleepAnalysisResult>> analyticFunction = List.of(
             new SleepingSessionCounter(),
             new MinDurationSession(),
             new MaxDurationSession(),
@@ -47,7 +47,7 @@ public class SleepTrackerApp {
     }
 
     private List<SleepAnalysisResult> analyzeSession(List<SleepingSession> sessions) {
-        return ANALYTIC_FUNCTION.stream()
+        return analyticFunction.stream()
                 .map(function -> function.apply(sessions))
                 .toList();
     }
