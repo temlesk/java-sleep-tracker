@@ -43,7 +43,7 @@ class AverageDurationSessionTest {
 
         SleepAnalysisResult result = averageDurationSession.apply(session);
         assertEquals(AverageDurationSession.TITLE, result.getFunctionTitle());
-        assertEquals(600L, result.getResult());
+        assertEquals(600.0, result.getResult());
     }
 
     @DisplayName("Тест нахождение средней продолжительности сессий при пустом списке")
@@ -53,6 +53,6 @@ class AverageDurationSessionTest {
 
         SleepAnalysisResult result = averageDurationSession.apply(sessions);
         assertEquals(AverageDurationSession.TITLE, result.getFunctionTitle());
-        assertEquals("Не удалось найтри среднюю продолжительность сессии", result.getFunctionTitle());
+        assertEquals(0.0, result.getResult());
     }
 }

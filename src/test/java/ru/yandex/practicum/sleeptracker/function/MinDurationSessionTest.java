@@ -45,6 +45,6 @@ class MinDurationSessionTest {
 
         SleepAnalysisResult result = durationSession.apply(sessions);
         assertEquals(MinDurationSession.TITLE, result.getFunctionTitle());
-        assertEquals("Не удалось найти минимальную продолжительность", result.getResult());
+        assertEquals("Минимальная продолжительность равна 0", result.getResult());
     }
 }

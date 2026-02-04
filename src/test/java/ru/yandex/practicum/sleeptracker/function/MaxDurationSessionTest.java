@@ -45,6 +45,6 @@ class MaxDurationSessionTest {
 
         SleepAnalysisResult result = maxDurationSession.apply(sessions);
         assertEquals(MaxDurationSession.TITLE, result.getFunctionTitle());
-        assertEquals("Не удалось найти максимальную продолжительность", result.getResult());
+        assertEquals("Максимальная продолжительность равна 0", result.getResult());
     }
 }

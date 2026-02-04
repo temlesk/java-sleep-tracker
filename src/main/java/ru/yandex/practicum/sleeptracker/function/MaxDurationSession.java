@@ -23,7 +23,7 @@ public class MaxDurationSession implements Function<List<SleepingSession>, Sleep
             long minutes = maxDuration.get().toMinutes();
             return new SleepAnalysisResult(TITLE, minutes);
         } else {
-            return new SleepAnalysisResult(TITLE, "Не удалось найти максимальную продолжительность");
+            return new SleepAnalysisResult(TITLE, "Максимальная продолжительность равна 0");
         }
     }
 }

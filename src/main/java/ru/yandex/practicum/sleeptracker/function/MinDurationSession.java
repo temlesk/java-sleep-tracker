@@ -21,7 +21,7 @@ public class MinDurationSession implements Function<List<SleepingSession>, Sleep
             long minutes = minDuration.get().toMinutes();
             return new SleepAnalysisResult(TITLE, minutes);
         } else {
-            return new SleepAnalysisResult(TITLE, "Не удалось найти минимальную продолжительность");
+            return new SleepAnalysisResult(TITLE, "Минимальная продолжительность равна 0");
         }
     }
 }
