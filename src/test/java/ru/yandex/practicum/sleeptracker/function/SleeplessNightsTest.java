@@ -16,7 +16,7 @@ class SleeplessNightsTest {
 
     SleeplessNights sleeplessNights = new SleeplessNights();
 
-    @DisplayName("Тестирование корректного количества бессоных ночей при их отсутствии в списке")
+    @DisplayName("Тестирование одной бессоной ночи из 3 ночей")
     @Test
     void sleeplessNightReturnCorrectCountTheyAreNotInTheList() {
         List<SleepingSession> sessions = new ArrayList<>();
@@ -29,7 +29,7 @@ class SleeplessNightsTest {
 
         sessions.add(new SleepingSession(
                 LocalDateTime.of(2025, 1, 3,22,0),
-                LocalDateTime.of(2025, 1, 3,8,0),
+                LocalDateTime.of(2025, 1, 4,8,0),
                 SleepQuality.NORMAL
         ));
 
@@ -44,37 +44,59 @@ class SleeplessNightsTest {
         List<SleepingSession> sessions = new ArrayList<>();
 
         sessions.add(new SleepingSession(
-                LocalDateTime.of(2025, 1, 1,17,0),
-                LocalDateTime.of(2025, 1, 1,23,0),
+                LocalDateTime.of(2025, 1, 1,7,0),
+                LocalDateTime.of(2025, 1, 1,11,0),
                 SleepQuality.NORMAL
         ));
 
         sessions.add(new SleepingSession(
-                LocalDateTime.of(2025, 1, 3,6,0),
-                LocalDateTime.of(2025, 1, 3,10,0),
+                LocalDateTime.of(2025, 1, 3,17,0),
+                LocalDateTime.of(2025, 1, 3,23,0),
                 SleepQuality.NORMAL
         ));
-
         sessions.add(new SleepingSession(
-                LocalDateTime.of(2025, 1, 6,22,0),
-                LocalDateTime.of(2025, 1, 6,23,0),
-                SleepQuality.NORMAL
-        ));
-
-        sessions.add(new SleepingSession(
-                LocalDateTime.of(2025, 1, 7,23,0),
-                LocalDateTime.of(2025, 1, 8,10,0),
-                SleepQuality.NORMAL
-        ));
-
-        sessions.add(new SleepingSession(
-                LocalDateTime.of(2025, 1, 8,22,0),
-                LocalDateTime.of(2025, 1, 9,23,0),
+                LocalDateTime.of(2025, 1, 5,0,0),
+                LocalDateTime.of(2025, 1, 6,8,0),
                 SleepQuality.NORMAL
         ));
 
         SleepAnalysisResult result = sleeplessNights.apply(sessions);
         assertEquals(SleeplessNights.TITLE, result.getFunctionTitle());
-        assertEquals(2L, result.getResult());
+        assertEquals(4L, result.getResult());
+    }
+
+    @Test
+    void sleeplessNight19to5() {
+        List<SleepingSession> sessions = new ArrayList<>();
+
+        sessions.add(new SleepingSession(
+                LocalDateTime.of(2025, 1, 29,23,0),
+                LocalDateTime.of(2025, 1, 30,1,0),
+                SleepQuality.NORMAL
+        ));
+        sessions.add(new SleepingSession(
+                LocalDateTime.of(2025, 2, 4,7,0),
+                LocalDateTime.of(2025, 2, 4,23,0),
+                SleepQuality.NORMAL
+        ));
+
+        SleepAnalysisResult result = sleeplessNights.apply(sessions);
+        assertEquals(SleeplessNights.TITLE, result.getFunctionTitle());
+        assertEquals(5L, result.getResult());
+    }
+
+    @Test
+    void sleeplessNight1to2() {
+        List<SleepingSession> sessions = new ArrayList<>();
+
+        sessions.add(new SleepingSession(
+                LocalDateTime.of(2025, 1, 1,1,0),
+                LocalDateTime.of(2025, 1, 1,2,0),
+                SleepQuality.NORMAL
+        ));
+
+        SleepAnalysisResult result = sleeplessNights.apply(sessions);
+        assertEquals(SleeplessNights.TITLE, result.getFunctionTitle());
+        assertEquals(0L, result.getResult());
     }
 }
